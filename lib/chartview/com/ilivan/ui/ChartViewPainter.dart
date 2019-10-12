@@ -120,7 +120,6 @@ class ChartViewPainter extends CustomPainter {
 
   ChartGrid _chartGrid;
   void _initChartGrid(Size size) {
-    print("${size.width}-${size.height}");
     double marginGridLeft = _labelWidth + _labelWidth / 3;
     double marginGridBottom = _labelHeight + _labelHeight / 2;
     _chartGrid = ChartGrid.build()
