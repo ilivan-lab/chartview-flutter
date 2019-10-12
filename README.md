@@ -14,7 +14,25 @@ Demo
 Get started
 -----------
 
-To start you have to clone [chartview-flutter](https://github.com/ilivan-lab/chartview-flutter) project.
+Clone the project:
+```
+cd path/to/your/project/
+git clone https://github.com/ilivan-lab/chartviewflutter.git
+```
+Import `chartviewflutter` into your project: <br>
+  -  Go to `File->Project Structure->Modules`. <br>
+  - Press `Add` button(Plus symbol). <br>
+  - Press `Import module` and select cloned project. Press `OK`. <br>
+  - Select `Create module from existing sources`->`Next`->`Finish` <br>
+  - Add dependency to your project: In `Project Structure` select `Modules` -> select your project -> Press `Add` button -> `Module dependency` -> select `chartviewflutter` -> Press `Ok` -> Press `Apply`. <br>
+
+After that add also dependency into pubspec.yaml of your project:
+```yaml
+dependencies:
+  chartviewflutter:
+    path: ./chartviewflutter/
+```
+Invoke `flutter packages get` in Terminal or press on this button in the top.
 
 
 Usage
