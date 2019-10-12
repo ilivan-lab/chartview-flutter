@@ -6,27 +6,28 @@ import '../models/ChartGrid.dart';
 import '../models/ChartDataSet.dart';
 import 'dart:ui' as dartUI;
 
+///
+/// ChartViewPainter
+///
+/// authors: Ilya Litosh
+///
 class ChartViewPainter extends CustomPainter {
 
-  static const Color DEFAULT_GRID_START_COLOR = Color(0xFF30CFD0);
-  static const Color DEFAULT_GRID_END_COLOR = Color(0xFF330867);
+  ChartViewPainter(
+    ChartDataSet chartDataSet,
+    Color labelsTextColor,
+    double labelsTextSize,
+    Color gridLineColor,
+    double gridLineWidth,
+    double gridSize,
+    Color gridStartColor,
+    Color gridEndColor,
+    double flexure,
+    Color chartLineStartColor,
+    Color chartLineEndColor,
+  ) {
+    this._chartDataSet = chartDataSet;
 
-  static const Color DEFAULT_CHART_LINE_START_COLOR = Color(0xA530C6D4);
-  static const Color DEFAULT_CHART_LINE_END_COLOR = Color(0xA55566B0);
-
-  ChartViewPainter({
-    Color labelsTextColor = Colors.black,
-    double labelsTextSize = 13,
-    Color gridLineColor = Colors.black12,
-    double gridLineWidth = 1,
-    double gridSize = 1.5,
-    Color gridStartColor = DEFAULT_GRID_START_COLOR,
-    Color gridEndColor = DEFAULT_GRID_END_COLOR,
-    double flexure = 0.6,
-    Color chartLineStartColor = DEFAULT_CHART_LINE_START_COLOR,
-    Color chartLineEndColor = DEFAULT_CHART_LINE_END_COLOR,
-    ChartDataSet chartDataSet
-  }) {
     this._labelsTextColor = labelsTextColor;
     this._labelsTextSize = labelsTextSize;
     this._gridLineColor = gridLineColor;
@@ -37,37 +38,27 @@ class ChartViewPainter extends CustomPainter {
     this._flexure = flexure;
     this._chartLineStartColor = chartLineStartColor;
     this._chartLineEndColor = chartLineEndColor;
-    this._chartDataSet = chartDataSet;
 
     _initialize();
   }
 
   Color _labelsTextColor;
-  Color get labelsTextColor => _labelsTextColor;
 
   double _labelsTextSize;
-  double get labelsTextSize => _labelsTextSize;
 
   Color _gridLineColor;
-  Color get gridLineColor => _gridLineColor;
 
   double _gridLineWidth;
-  double get gridLineWidth => _gridLineWidth;
 
   double _gridSize;
-  double get gridSize => _gridSize;
 
   Color _gridStartColor;
-  Color get gridStartColor => _gridStartColor;
 
   Color _gridEndColor;
-  Color get gridEndColor => _gridEndColor;
 
   Color _chartLineStartColor;
-  Color get chartLineStartColor => _chartLineStartColor;
 
   Color _chartLineEndColor;
-  Color get chartLineEndColor => _chartLineEndColor;
 
   ChartDataSet _chartDataSet = new ChartDataSet();
 
@@ -208,7 +199,7 @@ class ChartViewPainter extends CustomPainter {
       for (double j = 0; j < pointsCount; j++) {
         double coorX = j * _chartGrid.scaleDivisionX + marginGridLeft();
         double coorY = i;
-        canvas.drawCircle(Offset(coorX, coorY), gridSize, _gridPointPaint);
+        canvas.drawCircle(Offset(coorX, coorY), _gridSize, _gridPointPaint);
       }
     }
   }
@@ -243,10 +234,9 @@ class ChartViewPainter extends CustomPainter {
   }
 
   double _flexure;
-  double get flexure => _flexure;
 
   double _computeDelta(double coorX, double prevX) {
-    return (coorX - prevX) * flexure;
+    return (coorX - prevX) * _flexure;
   }
 
 

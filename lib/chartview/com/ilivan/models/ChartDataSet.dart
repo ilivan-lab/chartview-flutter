@@ -44,7 +44,7 @@ class ChartDataSet {
     _points.add(chartPoint);
   }
 
-  static ChartDataSetBuilder build() {
+  static ChartDataSetBuilder builder() {
     return ChartDataSetBuilder();
   }
 
