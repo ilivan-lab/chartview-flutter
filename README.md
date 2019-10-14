@@ -2,13 +2,16 @@
 
 Introduction
 ------------
-Flutter UI component for shows charts. <br><br>
+Flutter UI component for shows charts.
+
+Ported from the native Android component: https://github.com/ilivan-lab/chartview <br><br>
 
 UI/UX design: [Victoria Kosmovich](https://www.behance.net/vkosmovich)
 
 Demo
 ----
 
+Will be here soon...
 ![chartview1](imgres/chartview-demo.gif)
 
 Get started
